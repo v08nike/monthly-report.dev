@@ -9,4 +9,4 @@ In this file, there are event functions that be called from event_handler.js.
 Inside event funcitons, they have to update chart data. So they call function in highchart_controll.js.
 
 #highchart_controll.js
-There are section that map_chart and bar_chart are updated."# monthly-report.dev" 
+There are section that map_chart and bar_chart are updated.
