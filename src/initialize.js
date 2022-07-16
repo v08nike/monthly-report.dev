@@ -1,4 +1,4 @@
-;(async () => {
+var initialize = async () => {
   let data_url = './data/monthly_report_data.json'
   let state_report_prefix = 'https://housingiq.com/state-reports/'
   let metro_report_prefix = 'https://housingiq.com/market-reports/place_id-'
@@ -38,6 +38,14 @@
   )
 
   let state_map_data = JSON.parse(monthly_data.map_data_state[0])
+
+  state_map_data = state_map_data.map((item) => {
+    return {
+      ...item,
+      search_place: item['place_name'].toLowerCase(),
+    }
+  })
+
   let top_metros = JSON.parse(monthly_data.top_metros[0])
   let bottom_metros = JSON.parse(monthly_data.bottom_metros[0])
 
@@ -46,10 +54,41 @@
   )
 
   let metro_map_data = JSON.parse(monthly_data.map_data_metro[0])
+  metro_map_data = metro_map_data.map((item) => {
+    return {
+      ...item,
+      search_place: item['place_name'].toLowerCase(),
+    }
+  })
 
   //initialize base display: overview, table....
-  initOverviews(monthly_data)
-  initPerformanceState(state_performance_data_rows)
+  setValueById('#report_date', monthly_data.report_date)
+  setValueById('#us_overview', monthly_data.us_overview)
+  setValueById('#us_overview_2', monthly_data.us_overview_2)
+  setValueById('#state_overview', monthly_data.state_overview)
+  setValueById(
+    '#state_performance_overview',
+    monthly_data.state_performance.overview,
+  )
+  setValueById('#metro_overview', monthly_data.metro_overview)
+  setValueById(
+    '#metro_performance_overview',
+    monthly_data.metro_performance.overview,
+  )
+
+  let id_number = 0
+  for (let i = 1; i < 5; i++) {
+    for (let j = 1; j < 5; j++) {
+      id_number = i + '' + j
+
+      let state_performance_value = state_performance_data_rows[i - 1][j - 1]
+      setValueById('#performance_states_' + id_number, state_performance_value)
+
+      let metro_performance_value = state_performance_data_rows[i - 1][j - 1]
+      setValueById('#performance_metros_' + id_number, metro_performance_value)
+    }
+  }
+
   initRankingTable(top_states, bottom_states, 4, 'states')
   initRankingTable(top_metros, bottom_metros, 6, 'metros')
 
@@ -192,7 +231,7 @@
     state_report_prefix,
   )
 
-  let state_explorer_root = document.querySelector('#state_explorer')
+  let state_explorer_root = document.querySelector('#states_explorer')
 
   let state_map_info = {
     map_data: state_map_data,
@@ -234,37 +273,6 @@
 
   init_all_event_handler(metro_explorer_root, metro_map_info)
   update_map_and_chart(metro_explorer_root, metro_map_info)
-})()
-
-function initOverviews(monthly_data) {
-  setValueById('#report_date', monthly_data.report_date)
-  setValueById('#us_overview', monthly_data.us_overview)
-  setValueById('#us_overview_2', monthly_data.us_overview_2)
-  setValueById('#state_overview', monthly_data.state_overview)
-  setValueById(
-    '#state_performance_overview',
-    monthly_data.state_performance.overview,
-  )
-  setValueById('#metro_overview', monthly_data.metro_overview)
-  setValueById(
-    '#metro_performance_overview',
-    monthly_data.metro_performance.overview,
-  )
-}
-
-function initPerformanceState(state_performance_data_rows) {
-  let id_number = 0
-  for (let i = 1; i < 5; i++) {
-    for (let j = 1; j < 5; j++) {
-      id_number = i + '' + j
-
-      let state_performance_value = state_performance_data_rows[i - 1][j - 1]
-      setValueById('#performance_states_' + id_number, state_performance_value)
-
-      let metro_performance_value = state_performance_data_rows[i - 1][j - 1]
-      setValueById('#performance_metros_' + id_number, metro_performance_value)
-    }
-  }
 }
 
 function initRankingTable(top, bottom, length, id) {
@@ -286,3 +294,32 @@ function initRankingTable(top, bottom, length, id) {
 function setValueById(id, value) {
   document.querySelector(id).innerHTML = value
 }
+
+// Initialize range slider
+document.querySelectorAll('.range-slider').forEach((parent) => {
+  if (!parent) {
+    return
+  }
+
+  const rangeS = parent.querySelectorAll('input[type="range"]'),
+    numberS = parent.querySelectorAll('input[type="number"]')
+
+  rangeS.forEach((el) => {
+    el.oninput = () => {
+      let lowerVal = parseFloat(rangeS[0].value),
+        upperVal = parseFloat(rangeS[1].value)
+
+      if (upperVal < lowerVal + 5) {
+        rangeS[0].value = upperVal - 5
+      }
+      if (lowerVal > upperVal - 5) {
+        rangeS[1].value = lowerVal + 5
+      }
+
+      numberS[0].value = lowerVal
+      numberS[1].value = upperVal
+    }
+  })
+})
+
+initialize()

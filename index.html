@@ -302,8 +302,7 @@
             <div id="us_chart" style="height:600px; width: 100%;"></div>
           </div>
         </div>
-
-        <div id="state_explorer" dataName="state">
+        <div id="states_explorer" data-id="states">
           <div class="hmvi-x-margin-main">
             <div class="hmvi-x-font-main hmvi-x-font-justify">State HMVI Explorer</div>
             <div class="hmvi-x-font-paragraph hmvi-x-margin-paragraph hmvi-x-font-justify">State Housing Market Vitality
@@ -312,19 +311,19 @@
               are derived from the metro housing markets comprising each state.</div>
             <div class="hmvi-x-margin-paragraph">
               <div style="display: flex; justify-content: flex-end">
-                <button class="explore-btn-rounded" id="map-search-btn" title="Search" tagId="Search">
+                <button class="explore-btn-rounded" id="states-map-search-btn" title="Search" tag-type="Search" tag-type="welcome">
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
-                <button class="explore-btn-rounded" id="map-sort-btn" title="Sort" tagId="Sort">
+                <button class="explore-btn-rounded" id="states-map-sort-btn" title="Sort" tag-type="Sort">
                   <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
                 </button>
-                <button class="explore-btn-rounded" id="map-filter-btn" title="Filter" tagId="Filter">
+                <button class="explore-btn-rounded" id="states-map-filter-btn" title="Filter" tag-type="Filter">
                   <i class="fa fa-filter" aria-hidden="true"></i>
                 </button>
-                <button class="explore-btn-rounded" id="map-summary-btn" title="Summary" tagId="Summary">
+                <button class="explore-btn-rounded" id="states-map-summary-btn" title="Summary" tag-type="Summary">
                   <i class="fa fa-info-circle" aria-hidden="true"></i>
                 </button>
-                <button class="explore-btn-rounded" id="map-refresh-btn" title="Refresh" tagId="Refresh">
+                <button class="explore-btn-rounded" id="states-map-refresh-btn" title="Refresh" tag-type="Refresh">
                   <i class="fa fa-refresh" aria-hidden="true"></i>
                 </button>
               </div>
@@ -335,12 +334,12 @@
                 <div class="col-xl-6">
                   <div id="state_barchart"></div>
                 </div>
-              <div>
+              </div>
             </div>
           </div>
           <!-- State Modals Start -->
-          <div id="modalss">
-            <div tagId="search-modal" class="modal">
+          <div id="states-modals">
+            <div tag-type="search-modal" class="modal">
               <div class="modal-content">
                 <div class="modal-header">
                   <h4 class="modal-title">Search</h4>
@@ -349,15 +348,15 @@
                 <div class="modal-body">
                   <fieldset>
                     <div class="hmvi_explorer_autocomplete">
-                      <div class="input-group" style="width: 100%;"> <input id="hmvi_explorer_state_names_input_text" tagId="hmvi_explorer_input_text"
+                      <div class="input-group" style="width: 100%;"> <input id="hmvi_explorer_state_names_input_text" tag-type="hmvi_explorer_input_text"
                           class="form-control" type="text" placeholder="Enter state name" aria-describedby="basic-addon2"
-                          autofocus> <span id="refresh-search" class="input-group-addon" tagId="input_text_reset" > <span
+                          autofocus> <span id="states-refresh-search" class="input-group-addon" tag-type="input_text_reset" > <span
                             class="pull-right- fa fa-undo hmvi_explorer_refresh_value"value="hmvi_explorer_reset_state_names"
                             aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Clear"></span> </span></div>
                     </div>
-                    <div class="suggestions" tagId="suggestions"></div>
+                    <div class="suggestions" tag-type="suggestions"></div>
                     </ul>
-                    <div id="hmvi_explorer_selected_state" tagId="hmvi_explorer_itme_selected" class="hmvi_explorer_search_items_scroll"></div>
+                    <div id="state_hmvi_explorer_selected" tag-type="hmvi_explorer_itme_selected" class="hmvi_explorer_selected hmvi_explorer_search_items_scroll"></div>
                   </fieldset>
                 </div>
                 <div class="modal-footer">
@@ -366,7 +365,7 @@
               </div>
             </div>
           
-            <div tagId="sort-modal" class="modal">
+            <div tag-type="sort-modal" class="modal">
               <!-- Modal content -->
               <div class="modal-content">
                 <div class="modal-header">
@@ -375,17 +374,17 @@
                 </div>
                 <div class="modal-body">
                   <div class="container-fluid hmvi_explorer_center_filters">
-                    <div id="hmvi_explorer_data_set_id" class="btn-group btn-group-justified" data-toggle="buttons">
-                      <label id="market-rank" tagId="market_performance" class="btn btn-group-xs btn-default active">
-                        <input id="option1" class="hmvi_explorer_data_set_radio" name="options" type="radio"
+                    <div id="state_hmvi_explorer_data_set_id" class="hmvi_explorer_data_set_id btn-group btn-group-justified" data-toggle="buttons">
+                      <label id="states-market-rank" tag-type="market_performance" class="btn btn-group-xs btn-default active">
+                        <input id="states-option1" class="hmvi_explorer_data_set_radio" name="options" type="radio"
                           value="score_pctl">Market Rank
                       </label>
-                      <label id="situation" tagId="situation" class="btn btn-group-xs btn-default">
-                        <input id="option2" class="hmvi_explorer_data_set_radio" name="options" type="radio"
+                      <label id="states-situation" tag-type="situation" class="btn btn-group-xs btn-default">
+                        <input id="states-option2" class="hmvi_explorer_data_set_radio" name="options" type="radio"
                           value="situation_pctl">Situation
                       </label>
-                      <label id="outlook" tagId="outlook" class="btn btn-group-xs btn-default">
-                        <input id="option3" class="hmvi_explorer_data_set_radio" name="options" type="radio"
+                      <label id="states-outlook" tag-type="outlook" class="btn btn-group-xs btn-default">
+                        <input id="states-option3" class="hmvi_explorer_data_set_radio" name="options" type="radio"
                           value="outlook_pctl">Outlook
                       </label>
                     </div>
@@ -397,7 +396,7 @@
               </div>
             </div>
           
-            <div tagId="filter-modal" class="modal">
+            <div tag-type="filter-modal" class="modal">
               <!-- Modal content -->
               <div class="modal-content">
                 <div class="modal-header">
@@ -409,12 +408,12 @@
                     <div class="filter-title">
                       Market Rank
                     </div>
-                    <div class="range-slider" tagId="market-rank-range">
+                    <div class="range-slider" tag-type="market-rank-range">
                       <input value="0" min="0" max="100" step="1" type="range" class="slider slider-n">
                       <input value="100" min="0" max="100" step="1" type="range" class="slider slider-x">
                       <div class="slider-values">
-                        <input id="slider-min" type="number" value="0" min="0" disabled class="slider-value" tagId="slider-min">
-                        <input id="slider-max" type="number" value="100" min="0" disabled class="slider-value" tagId="slider-max">
+                        <input id="states-slider-min" type="number" value="0" min="0" disabled class="slider-value" tag-type="slider-min">
+                        <input id="states-slider-max" type="number" value="100" min="0" disabled class="slider-value" tag-type="slider-max">
                       </div>
                     </div>
                   </div>
@@ -424,17 +423,17 @@
                     </div>
                     <div class="situation">
                       <label class="switch">
-                        <input type="checkbox" checked id="outperforming" tagId="outperforming">
+                        <input type="checkbox" checked id="states-outperforming" tag-type="outperforming">
                         <span class="slider round"></span>
                         <label class="switch-label">Outperforming</label>
                       </label>
                       <label class="switch">
-                        <input type="checkbox" checked id="tracking" tagId="tracking">
+                        <input type="checkbox" checked id="states-tracking" tag-type="tracking">
                         <span class="slider round"></span>
                         <label class="switch-label">Tracking</label>
                       </label>
                       <label class="switch">
-                        <input type="checkbox" checked id="underperforming" tagId="underperforming">
+                        <input type="checkbox" checked id="states-underperforming" tag-type="underperforming">
                         <span class="slider round"></span>
                         <label class="switch-label">Underperforming</label>
                       </label>
@@ -446,17 +445,17 @@
                     </div>
                     <div class="situation">
                       <label class="switch">
-                        <input type="checkbox" checked id="outperform" tagId="outperform">
+                        <input type="checkbox" checked id="states-outperform" tag-type="outperform">
                         <span class="slider round"></span>
                         <label class="switch-label">Outperform</label>
                       </label>
                       <label class="switch">
-                        <input type="checkbox" checked id="track" tagId="track">
+                        <input type="checkbox" checked id="states-track" tag-type="track">
                         <span class="slider round"></span>
                         <label class="switch-label">Track</label>
                       </label>
                       <label class="switch">
-                        <input type="checkbox" checked id="underperform" tagId="underperform">
+                        <input type="checkbox" checked id="states-underperform" tag-type="underperform">
                         <span class="slider round"></span>
                         <label class="switch-label">Underperform</label>
                       </label>
@@ -469,7 +468,7 @@
               </div>
             </div>
           
-            <div tagId="summary-modal" class="modal">
+            <div tag-type="summary-modal" class="modal">
               <!-- Modal content -->
               <div class="modal-content summary-content">
                 <div class="modal-header">
@@ -477,11 +476,11 @@
                   <button class="close" type="button" data-dismiss="modal">×</button>
                 </div>
                 <div class="modal-body">
-                  <div id="summary-content" tagId="summary-content">
+                  <div id="states-summary-content" tag-type="summary-content">
                     Displaying 100.0% (402 of 402) markets
                     Market Rank range: 0 to 100 percentile
                   </div>
-                  <div id="grid" tagId="grid">
+                  <div id="states-grid" tag-type="grid">
                     <table>
                       <tr>
                         <th></th>
@@ -496,31 +495,31 @@
                       </tr>
                       <tr>
                         <th>Outperforming</th>
-                        <td id="outperforming-outperform" tagId="outperforming-outperform">19%</td>
-                        <td id="outperforming-track" tagId="outperforming-track">39%</td>
-                        <td id="outperforming-underperform" tagId="outperforming-underperform">10%</td>
-                        <td id="outperforming-total" tagId="outperforming-total">11%</td>
+                        <td id="states-outperforming-outperform" tag-type="outperforming-outperform">19%</td>
+                        <td id="states-outperforming-track" tag-type="outperforming-track">39%</td>
+                        <td id="states-outperforming-underperform" tag-type="outperforming-underperform">10%</td>
+                        <td id="states-outperforming-total" tag-type="outperforming-total">11%</td>
                       </tr>
                       <tr>
                         <th>Tracking</th>
-                        <td id="tracking-outperform" tagId="tracking-outperform">19%</td>
-                        <td id="tracking-track" tagId="tracking-track">39%</td>
-                        <td id="tracking-underperform"  tagId="tracking-underperform">10%</td>
-                        <td id="tracking-total" tagId="tracking-total">11%</td>
+                        <td id="states-tracking-outperform" tag-type="tracking-outperform">19%</td>
+                        <td id="states-tracking-track" tag-type="tracking-track">39%</td>
+                        <td id="states-tracking-underperform"  tag-type="tracking-underperform">10%</td>
+                        <td id="states-tracking-total" tag-type="tracking-total">11%</td>
                       </tr>
                       <tr>
                         <th>Underperforming</th>
-                        <td id="underperforming-outperform" tagId="underperforming-outperform">19%</td>
-                        <td id="underperforming-track" tagId="underperforming-track">39%</td>
-                        <td id="underperforming-underperform" tagId="underperforming-underperform">10%</td>
-                        <td id="underperforming-total" tagId="underperforming-total">11%</td>
+                        <td id="states-underperforming-outperform" tag-type="underperforming-outperform">19%</td>
+                        <td id="states-underperforming-track" tag-type="underperforming-track">39%</td>
+                        <td id="states-underperforming-underperform" tag-type="underperforming-underperform">10%</td>
+                        <td id="states-underperforming-total" tag-type="underperforming-total">11%</td>
                       </tr>
                       <tr>
                         <th>Total - Outlook</th>
-                        <td id="total-outperform" tagId="total-outperform">19%</td>
-                        <td id="total-track" tagId="total-track">39%</td>
-                        <td id="total-underperform" tagId="total-underperform">10%</td>
-                        <td id="total-total" tagId="total-total">11%</td>
+                        <td id="states-total-outperform" tag-type="total-outperform">19%</td>
+                        <td id="states-total-track" tag-type="total-track">39%</td>
+                        <td id="states-total-underperform" tag-type="total-underperform">10%</td>
+                        <td id="states-total-total" tag-type="total-total">11%</td>
                       </tr>
                     </table>
                   </div>
@@ -533,8 +532,7 @@
           </div>
           <!-- State Modals End -->
         </div>
-
-        <div id="metro_explorer" dataName="metro">
+        <div id="metro_explorer" data-id="metro">
           <div class="hmvi-x-margin-main">
             <div class="hmvi-x-font-main hmvi-x-font-justify">Metro HMVI Explorer</div>
             <div class="hmvi-x-font-paragraph hmvi-x-margin-paragraph hmvi-x-font-justify">The Metro Housing Market
@@ -543,19 +541,19 @@
               house prices across the US?</div>
             <div class="hmvi-x-margin-paragraph">
               <div style="display: flex; justify-content: flex-end">
-                <button class="explore-btn-rounded" id="map-search-btn" title="Search" tagId="Search">
+                <button class="explore-btn-rounded" id="metro-map-search-btn" title="Search" tag-type="Search">
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
-                <button class="explore-btn-rounded" id="map-sort-btn" title="Sort" tagId="Sort">
+                <button class="explore-btn-rounded" id="metro-map-sort-btn" title="Sort" tag-type="Sort">
                   <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
                 </button>
-                <button class="explore-btn-rounded" id="map-filter-btn" title="Filter" tagId="Filter">
+                <button class="explore-btn-rounded" id="metro-map-filter-btn" title="Filter" tag-type="Filter">
                   <i class="fa fa-filter" aria-hidden="true"></i>
                 </button>
-                <button class="explore-btn-rounded" id="map-summary-btn" title="Summary" tagId="Summary">
+                <button class="explore-btn-rounded" id="metro-map-summary-btn" title="Summary" tag-type="Summary">
                   <i class="fa fa-info-circle" aria-hidden="true"></i>
                 </button>
-                <button class="explore-btn-rounded" id="map-refresh-btn" title="Refresh" tagId="Refresh">
+                <button class="explore-btn-rounded" id="metro-map-refresh-btn" title="Refresh" tag-type="Refresh">
                   <i class="fa fa-refresh" aria-hidden="true"></i>
                 </button>
               </div>
@@ -566,12 +564,12 @@
                 <div class="col-xl-6">
                   <div id="metro_barchart"></div>
                 </div>
+              </div>
             </div>
           </div>
           <!-- Metro Modals Start -->
-          <div id="modalss">
-            <div tagId="search-modal" class="modal">
-
+          <div id="metro-modals">
+            <div tag-type="search-modal" class="modal">
               <div class="modal-content">
                 <div class="modal-header">
                   <h4 class="modal-title">Search</h4>
@@ -580,15 +578,15 @@
                 <div class="modal-body">
                   <fieldset>
                     <div class="hmvi_explorer_autocomplete">
-                      <div class="input-group" style="width: 100%;"> <input id="hmvi_explorer_metro_names_input_text" tagId="hmvi_explorer_input_text"
+                      <div class="input-group" style="width: 100%;"> <input id="hmvi_explorer_metro_names_input_text" tag-type="hmvi_explorer_input_text"
                           class="form-control" type="text" placeholder="Enter metro name" aria-describedby="basic-addon2"
-                          autofocus> <span id="basic-addon2" class="input-group-addon"> <span
-                            class="pull-right- fa fa-undo hmvi_explorer_refresh_value" tagId="input_text_reset" value="hmvi_explorer_reset_metro_names"
+                          autofocus> <span id="metro-basic-addon2" class="input-group-addon"> <span
+                            class="pull-right- fa fa-undo hmvi_explorer_refresh_value" tag-type="input_text_reset" value="hmvi_explorer_reset_metro_names"
                             aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Clear"></span> </span></div>
                     </div>
-                    <div class="suggestions" tagId="suggestions"></div>
+                    <div class="suggestions" tag-type="suggestions"></div>
                     </ul>
-                    <div id="hmvi_explorer_selected_metros" tagId="hmvi_explorer_itme_selected" class="hmvi_explorer_search_items_scroll"></div>
+                    <div id="metro_hmvi_explorer_selected" tag-type="hmvi_explorer_itme_selected" class="hmvi_explorer_selected hmvi_explorer_search_items_scroll"></div>
                   </fieldset>
                 </div>
                 <div class="modal-footer">
@@ -597,7 +595,7 @@
               </div>
             </div>
           
-            <div tagId="sort-modal" class="modal">
+            <div tag-type="sort-modal" class="modal">
               <!-- Modal content -->
               <div class="modal-content">
                 <div class="modal-header">
@@ -606,17 +604,17 @@
                 </div>
                 <div class="modal-body">
                   <div class="container-fluid hmvi_explorer_center_filters">
-                    <div id="hmvi_explorer_data_set_id" class="btn-group btn-group-justified" data-toggle="buttons">
-                      <label id="market-rank" tagId="market_performance" class="btn btn-group-xs btn-default active">
-                        <input id="option1" class="hmvi_explorer_data_set_radio" name="options" type="radio"
+                    <div id="metro_hmvi_explorer_data_set_id" class="hmvi_explorer_data_set_id btn-group btn-group-justified" data-toggle="buttons">
+                      <label id="metro-market-rank" tag-type="market_performance" class="btn btn-group-xs btn-default active">
+                        <input id="metro-option1" class="hmvi_explorer_data_set_radio" name="options" type="radio"
                           value="score_pctl">Market Rank
                       </label>
-                      <label id="situation" tagId="situation" class="btn btn-group-xs btn-default">
-                        <input id="option2" class="hmvi_explorer_data_set_radio" name="options" type="radio"
+                      <label id="metro-situation" tag-type="situation" class="btn btn-group-xs btn-default">
+                        <input id="metro-option2" class="hmvi_explorer_data_set_radio" name="options" type="radio"
                           value="situation_pctl">Situation
                       </label>
-                      <label id="outlook" tagId="outlook" class="btn btn-group-xs btn-default">
-                        <input id="option3" class="hmvi_explorer_data_set_radio" name="options" type="radio"
+                      <label id="metro-outlook" tag-type="outlook" class="btn btn-group-xs btn-default">
+                        <input id="metro-option3" class="hmvi_explorer_data_set_radio" name="options" type="radio"
                           value="outlook_pctl">Outlook
                       </label>
                     </div>
@@ -628,7 +626,7 @@
               </div>
             </div>
           
-            <div tagId="filter-modal" class="modal">
+            <div tag-type="filter-modal" class="modal">
               <!-- Modal content -->
               <div class="modal-content">
                 <div class="modal-header">
@@ -640,12 +638,12 @@
                     <div class="filter-title">
                       Market Rank
                     </div>
-                    <div class="range-slider" tagId="market-rank-range">
+                    <div class="range-slider" tag-type="market-rank-range">
                       <input value="0" min="0" max="100" step="1" type="range" class="slider slider-n">
                       <input value="100" min="0" max="100" step="1" type="range" class="slider slider-x">
                       <div class="slider-values">
-                        <input id="slider-min" type="number" value="0" min="0" disabled class="slider-value" tagId="slider-min">
-                        <input id="slider-max" type="number" value="100" min="0" disabled class="slider-value" tagId="slider-max">
+                        <input id="metro-slider-min" type="number" value="0" min="0" disabled class="slider-value" tag-type="slider-min">
+                        <input id="metro-slider-max" type="number" value="100" min="0" disabled class="slider-value" tag-type="slider-max">
                       </div>
                     </div>
                   </div>
@@ -655,17 +653,17 @@
                     </div>
                     <div class="situation">
                       <label class="switch">
-                        <input type="checkbox" checked id="outperforming" tagId="outperforming">
+                        <input type="checkbox" checked id="metro-outperforming" tag-type="outperforming">
                         <span class="slider round"></span>
                         <label class="switch-label">Outperforming</label>
                       </label>
                       <label class="switch">
-                        <input type="checkbox" checked id="tracking" tagId="tracking">
+                        <input type="checkbox" checked id="metro-tracking" tag-type="tracking">
                         <span class="slider round"></span>
                         <label class="switch-label">Tracking</label>
                       </label>
                       <label class="switch">
-                        <input type="checkbox" checked id="underperforming" tagId="underperforming">
+                        <input type="checkbox" checked id="metro-underperforming" tag-type="underperforming">
                         <span class="slider round"></span>
                         <label class="switch-label">Underperforming</label>
                       </label>
@@ -677,17 +675,17 @@
                     </div>
                     <div class="situation">
                       <label class="switch">
-                        <input type="checkbox" checked id="outperform" tagId="outperform">
+                        <input type="checkbox" checked id="metro-outperform" tag-type="outperform">
                         <span class="slider round"></span>
                         <label class="switch-label">Outperform</label>
                       </label>
                       <label class="switch">
-                        <input type="checkbox" checked id="track" tagId="track">
+                        <input type="checkbox" checked id="metro-track" tag-type="track">
                         <span class="slider round"></span>
                         <label class="switch-label">Track</label>
                       </label>
                       <label class="switch">
-                        <input type="checkbox" checked id="underperform" tagId="underperform">
+                        <input type="checkbox" checked id="metro-underperform" tag-type="underperform">
                         <span class="slider round"></span>
                         <label class="switch-label">Underperform</label>
                       </label>
@@ -700,7 +698,7 @@
               </div>
             </div>
       
-            <div tagId="summary-modal" class="modal">
+            <div tag-type="summary-modal" class="modal">
               <!-- Modal content -->
               <div class="modal-content summary-content">
                 <div class="modal-header">
@@ -708,11 +706,11 @@
                   <button class="close" type="button" data-dismiss="modal">×</button>
                 </div>
                 <div class="modal-body">
-                  <div id="summary-content" tagId="summary-content">
+                  <div id="metro-summary-content" tag-type="summary-content">
                     Displaying 100.0% (402 of 402) markets
                     Market Rank range: 0 to 100 percentile
                   </div>
-                  <div id="grid" tagId="grid">
+                  <div id="metro-grid" tag-type="grid">
                     <table>
                       <tr>
                         <th></th>
@@ -727,31 +725,31 @@
                       </tr>
                       <tr>
                         <th>Outperforming</th>
-                        <td id="outperforming-outperform" tagId="outperforming-outperform">19%</td>
-                        <td id="outperforming-track" tagId="outperforming-track">39%</td>
-                        <td id="outperforming-underperform" tagId="outperforming-underperform">10%</td>
-                        <td id="outperforming-total" tagId="outperforming-total">11%</td>
+                        <td id="metro-outperforming-outperform" tag-type="outperforming-outperform">19%</td>
+                        <td id="metro-outperforming-track" tag-type="outperforming-track">39%</td>
+                        <td id="metro-outperforming-underperform" tag-type="outperforming-underperform">10%</td>
+                        <td id="metro-outperforming-total" tag-type="outperforming-total">11%</td>
                       </tr>
                       <tr>
                         <th>Tracking</th>
-                        <td id="tracking-outperform" tagId="tracking-outperform">19%</td>
-                        <td id="tracking-track" tagId="tracking-track">39%</td>
-                        <td id="tracking-underperform"  tagId="tracking-underperform">10%</td>
-                        <td id="tracking-total" tagId="tracking-total">11%</td>
+                        <td id="metro-tracking-outperform" tag-type="tracking-outperform">19%</td>
+                        <td id="metro-tracking-track" tag-type="tracking-track">39%</td>
+                        <td id="metro-tracking-underperform"  tag-type="tracking-underperform">10%</td>
+                        <td id="metro-tracking-total" tag-type="tracking-total">11%</td>
                       </tr>
                       <tr>
                         <th>Underperforming</th>
-                        <td id="underperforming-outperform" tagId="underperforming-outperform">19%</td>
-                        <td id="underperforming-track" tagId="underperforming-track">39%</td>
-                        <td id="underperforming-underperform" tagId="underperforming-underperform">10%</td>
-                        <td id="underperforming-total" tagId="underperforming-total">11%</td>
+                        <td id="metro-underperforming-outperform" tag-type="underperforming-outperform">19%</td>
+                        <td id="metro-underperforming-track" tag-type="underperforming-track">39%</td>
+                        <td id="metro-underperforming-underperform" tag-type="underperforming-underperform">10%</td>
+                        <td id="metro-underperforming-total" tag-type="underperforming-total">11%</td>
                       </tr>
                       <tr>
                         <th>Total - Outlook</th>
-                        <td id="total-outperform" tagId="total-outperform">19%</td>
-                        <td id="total-track" tagId="total-track">39%</td>
-                        <td id="total-underperform" tagId="total-underperform">10%</td>
-                        <td id="total-total" tagId="total-total">11%</td>
+                        <td id="metro-total-outperform" tag-type="total-outperform">19%</td>
+                        <td id="metro-total-track" tag-type="total-track">39%</td>
+                        <td id="metro-total-underperform" tag-type="total-underperform">10%</td>
+                        <td id="metro-total-total" tag-type="total-total">11%</td>
                       </tr>
                     </table>
                   </div>
@@ -770,11 +768,7 @@
 
 
 </body>
-<script src="./src/intialize.js"></script>
+<script src="./src/initialize.js"></script>
 <script src="./src/event_handlers.js"></script>
 <script src="./src/hmvi_monthly_report_impl.js"></script>
-<script src="./src/range.js"></script>
-<!-- <script src="./src/helper_functions.js"></script> -->
-<!-- <script src="./src/events.js"></script> -->
-<!-- <script src="./src/highchart_control.js"></script> -->
 </html>

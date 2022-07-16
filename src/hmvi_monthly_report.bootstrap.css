@@ -371,7 +371,7 @@ th {
   vertical-align: middle;
 }
 
-#hmvi_explorer_data_set_id .btn-default {
+.hmvi_explorer_data_set_id .btn-default {
   background-color: #e6e6e6;
 }
 
@@ -709,8 +709,7 @@ input:checked + .state-slider:before {
   background-color: rgb(220, 220, 220);
 }
 
-#hmvi_explorer_selected_metros,
-#hmvi_explorer_selected_state {
+.hmvi_explorer_selected {
   display: flex;
   flex-direction: column;
   margin-top: 10px;
